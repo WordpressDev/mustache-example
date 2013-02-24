@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mustache.js Example</title>
+<meta name="author" content="Adam Koniuszewski">
+</head>
+<body>
+
+<!-- Example 1
+  ===================================== -->
+  <h2>Example 1</h2>
+  <script type="mustache/tmpl" id="must">
+    <h3>{{title}}</h3>
+  </script>
+  <div id="box"></div>
+
+<!-- Example 2
+  ===================================== -->
+  <h2>Example 2</h2>
+  <div id="helloTmpl">
+    <h3>{{title}}</h3>
+    <ul>
+      {{#per}}
+      <li>
+        <h4>{{headname}}</h4>
+        <p>{{name}}</p>
+      </li>
+      {{/per}}
+    </ul>
+  </div>
+
+<!-- Example 3
+  ===================================== -->
+  <h2>Example 3</h2>
+  <div id="person">
+    <h3>{{firstName}}</h3>
+    <p>{{lastName}}</p>
+    URL: <a href="{{blogURL}}">{{blogURL}}</a>
+  </div>
+
+<!-- Example 4
+  ===================================== -->
+  <h2>Example 4</h2>
+  <script id="personTpl" type="text/template">
+    <h3>{{firstName}} {{lastName}}</h3>
+    <p>URL: <a href="{{blogURL}}">{{blogURL}}</a></p>
+  </script>
+
+  <div id="sampleArea"></div>
+
+<!-- Example 5
+  ===================================== -->  
+  <h2>Example 5</h2>
+  <script id="example5" type="text/template">
+  {{#person}}
+    <h3>{{title}}</h3>
+  {{/person}}
+  </script>
+
+  <div id="output5"></div>
+
+
+<!-- Scripts -->
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
+
+<!-- Example 1
+===================================== -->
+<script>
+  var data1 = {title: "This is example 1"};
+  var tmpl1 = document.getElementById("must").innerHTML;
+  var html1 = Mustache.to_html(tmpl1, data1);
+  var box = document.getElementById("box");
+box.innerHTML = html1;
+</script>
+
+<!-- Example 2
+===================================== -->
+<script>
+var data2 = {
+  title: "This is example 2",
+  "per" : [
+    {
+      "name" : "Joe",
+      "headname" : "1"
+    },
+    {
+      "name" : "Adam",
+      "headname" : "2"
+    },
+    {
+      "name" : "John",
+      "headname" : "3"
+    }
+  ]
+};
+var tmpl2 = document.getElementById("helloTmpl").innerHTML;
+var html2 = Mustache.to_html(tmpl2, data2);
+$('#helloTmpl').html(html2);
+</script>
+
+<!-- Example 3
+===================================== -->
+<script>
+var person3 = {
+    firstName: "John",
+    lastName: "Doe",
+    blogURL: "http://google.co.uk"
+};
+var tmpl3 = document.getElementById("person").innerHTML;
+var html3 = Mustache.to_html(tmpl3, person3);
+$('#person').html(html3);
+</script>
+
+<!-- Example 4
+===================================== -->
+<script>
+var person4 = {
+    firstName: "Michael",
+    lastName: "Jackson",
+    blogURL: "http://google.co.uk"
+};
+var tmpl4 = $('#personTpl').html();
+var html4 = Mustache.to_html(tmpl4, person4);
+$('#sampleArea').html(html4);
+</script>
+
+<!-- Example 5
+===================================== -->
+<script>
+  $(function() {
+    $.getJSON('http://serv1.co.uk/git/example.json', function(data) {
+        var template = $('#example5').html();
+        var info = Mustache.to_html(template, data);
+        $('#output5').html(info);
+    });
+  });
+</script>
+
+</body>
+</html>

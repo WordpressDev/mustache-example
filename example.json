@@ -1,0 +1,14 @@
+{
+  "person" : [
+    {
+      "firstname" : "Eric",
+      "lastname" : "Breitenbach",
+      "category" : "Film",
+      "image" : "/images/speaker_ericbreitenbach.jpg",
+      "link" : "http://ericbreitenbach.com",
+      "title" : "Getting Independent Documentaries off the ground",
+      "bio" : "Eric Breitenbach has been a still photographer for over thirty years and a filmmaker for more than fifteen. His still photographs have appeared in The New York Times Magazine, Newsweek, Details and  Information Week. In 1989 he began working in film and video, and since then has produced documentaries for National Geographic Explorer, The Sundance Channel, The Sci-Fi Channel, Lifetime Real Women, Americaâ€™s Health Network, PBS, and Florida Public Television. Eric Breitenbach has served on the Florida Film and Entertainment Advisory Committee, a panel that reports to the Governor on issues related to statewide media production. He has been a full-time professor in the Daytona State Collegeâ€™s renowned Photography Department since 1981.",
+      "description" : "In addition to discussing innovative ways of producing video documentaries, Daytona State College senior professor Eric Breitenbach will present information on the exhibition, distribution and broadcast potential of contemporary independent film."
+    }
+  ]
+}
